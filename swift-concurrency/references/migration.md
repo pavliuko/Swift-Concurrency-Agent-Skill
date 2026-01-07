@@ -19,6 +19,20 @@ Swift 6 doesn't fundamentally change how Swift Concurrency works—it **enforces
 
 ---
 
+## Project Settings That Change Concurrency Behavior
+
+Before interpreting diagnostics or choosing a fix, confirm the target/module settings. These settings can materially change how code executes and what the compiler enforces.
+
+### Quick matrix
+
+| Setting / feature | Where to check | Why it matters |
+|---|---|---|
+| Swift language mode (Swift 5.x vs Swift 6) | Xcode build settings (`SWIFT_VERSION`) / SwiftPM `// swift-tools-version:` | Swift 6 turns many warnings into errors and enables stricter defaults. |
+| Strict concurrency checking | Xcode: Strict Concurrency Checking (`SWIFT_STRICT_CONCURRENCY`) / SwiftPM: strict concurrency flags | Controls how aggressively Sendable + isolation rules are enforced. |
+| Default actor isolation | Xcode: Default Actor Isolation (`SWIFT_DEFAULT_ACTOR_ISOLATION`) / SwiftPM: `.defaultIsolation(MainActor.self)` | Changes the default isolation of declarations; can reduce migration noise but changes behavior and requirements. |
+| `NonisolatedNonsendingByDefault` | Xcode upcoming feature / SwiftPM `.enableUpcomingFeature("NonisolatedNonsendingByDefault")` | Changes how nonisolated async functions execute (can inherit the caller’s actor unless explicitly marked `@concurrent`). |
+| Approachable Concurrency | Xcode build setting / SwiftPM enables the underlying upcoming features | Bundles multiple upcoming features; recommended to migrate feature-by-feature first. |
+
 ## The Concurrency Rabbit Hole
 
 A common migration experience:
