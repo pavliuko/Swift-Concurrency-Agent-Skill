@@ -165,7 +165,19 @@ swift-concurrency/
 
 ## Contributing
 
-Found an issue or have a suggestion? Feel free to open a PR. This skill is maintained to reflect the latest Swift Concurrency best practices and will be updated as the language evolves.
+Contributions are welcome! This repository follows the [Agent Skills open format](https://agentskills.io/home), which has specific structural requirements.
+
+**We strongly recommend using AI assistance for contributions:**
+- Use the [skill-creator skill](https://github.com/anthropics/skills/tree/main/skills/skill-creator) with Claude to ensure proper formatting
+- This helps maintain the Agent Skills format and ensures your contribution works correctly with AI agents
+
+**Please read [CONTRIBUTING.md](CONTRIBUTING.md) for:**
+- How to use the skill-creator skill for contributions
+- Agent Skills format requirements
+- Quality standards and best practices
+- Pull request process
+
+This skill is maintained to reflect the latest Swift Concurrency best practices and will be updated as the language evolves.
 
 ## About the Author
 
